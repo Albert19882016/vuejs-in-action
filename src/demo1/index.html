@@ -6,17 +6,28 @@
 </head>
 <body>
     <div id="demo">
-    <p>{{message}}</p>
+    <p>{{message}}：{{i}}</p>
     <input v-model="message">
 </div>
-<script src="../../lib/vue/vue.js"></script>
+<script src="../../bower_components/vue/dist/vue.min.js"></script>
 <script>
 	var demo = new Vue({
 		el: '#demo',
 		data: {
-			message: 'Hello Vue.js!'
+			message: 'Hello Vue.js!',
+			i: 0
+		},
+		methods: {
+			plus: function () {
+				this.i++;
+				console.log(this.i);
+			}
 		}
 	});
+
+	//测试Vue的Data属性
+	demo.plus();
+	console.log(demo.i);
 </script>
 </body>
 </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="UTF-8">
+  	<title>demo3</title>
+</head>
+<body>
+    <ul id="list">
+        <li v-repeat="items" v-on="click: toggle(this)">
+            {{text}}-{{done}}
+        </li>
+    </ul>
+<script src="../../lib/vue/vue.js"></script>
+<script>
+    new Vue({
+        el: '#list',
+        data: {
+            items: [{
+                text: 'one',
+                done: true
+            }, {
+                text: 'two',
+                done: false
+            }]
+        },
+        methods: {
+            toggle: function(item) {
+                item.done = !item.done
+            }
+        }
+    })
+</script>
+</body>
+</html>

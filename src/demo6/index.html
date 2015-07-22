@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="UTF-8">
+  	<title>demo6</title>
+</head>
+<body>
+	<div id="demo" v-demo="LightSlateGray : msg"></div>
+<script src="../../lib/vue/vue.js"></script>
+<script>
+	Vue.directive('demo', {
+		bind: function() {
+			this.el.style.color = '#fff'
+			this.el.style.backgroundColor = this.arg
+		},
+		update: function(value) {
+			this.el.innerHTML =
+				'name - ' + this.name + '<br>' +
+				'raw - ' + this.raw + '<br>' +
+				'expression - ' + this.expression + '<br>' +
+				'argument - ' + this.arg + '<br>' +
+				'value - ' + value
+		}
+	});
+	var demo = new Vue({
+		el: '#demo',
+		data: {
+			msg: 'hello!'
+		}
+	});
+</script>
+</body>
+</html>

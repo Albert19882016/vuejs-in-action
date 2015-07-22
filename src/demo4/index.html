@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="UTF-8">
+  	<title>demo3</title>
+</head>
+<body>
+    <div id="demo">
+        <a v-on="click: onClick">Trigger a handler</a>
+        <a v-on="click: n++">Trigger an expression:{{n}}</a>
+    </div>
+<script src="../../lib/vue/vue.js"></script>
+<script>
+    new Vue({
+        el: '#demo',
+        data: {
+            n: 0
+        },
+        methods: {
+            onClick: function(e) {
+                console.log(e.target.tagName) // "A"
+                console.log(e.targetVM === this) // true
+            }
+        }
+    });
+</script>
+</body>
+</html>
