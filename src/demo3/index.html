@@ -3,10 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>demo3</title>
+    <style type="text/css">
+        #demo li{
+            transition: all .7s ease;
+            opacity: 1;
+            padding: 10px;
+            margin: 10px;
+            color: #ffffff;
+            background: #42b983;
+        }
+        #demo li.expand-enter, #demo li.expand-leave {
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
     <ul id="demo">
-        <li v-repeat="items" class="item-{{$index}}">
+        <li v-repeat="items" v-transition="expand" >
             {{$index}} - {{parentMsg}} {{childMsg}}
         </li>
     </ul>
@@ -21,8 +34,19 @@
             }, {
                 childMsg: 'Bar'
             }]
+        },
+        methods: {
+            addList: function () {
+                this.items.push({
+                    childMsg: 'Test' + this.items.length
+                });
+            },
+            delList: function() {
+                this.items.pop();
+            }
         }
     })
+
 </script>
 </body>
 </html>

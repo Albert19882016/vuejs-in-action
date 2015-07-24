@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo8</title>
+    <style type="text/css">
+		.msg {
+			transition: all .5s ease;
+			height: 30px;
+			background-color: #eee;
+			overflow: hidden;
+		}
+		.msg.expand-enter, .msg.expand-leave {
+  			height: 0;
+  			opacity: 0;
+		}
+    </style>
+</head>
+<body>
+    <div id="demo">
+    	<h2>指令</h2>
+    	<hr/>
+    	<p class="msg" v-show="isShow" v-transition="expand">点击下面按钮显示/隐藏</p>
+    	<button v-on="click: isShow = !isShow">点击显示/隐藏</button>
+    	<hr/>
+
+	</div>
+<script src="../../bower_components/vue/dist/vue.min.js"></script>
+<script>
+	var demo = new Vue({
+		el: '#demo',
+		data: {
+			isShow: true
+		},
+		methods: {}
+	});
+</script>
+</body>
+</html>

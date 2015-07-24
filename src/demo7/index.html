@@ -6,7 +6,8 @@
 </head>
 <body>
     <div id="demo">
-    <p>{{message}}：{{i}}</p>
+    <p>{{message}}：{{i | currency '$'}}</p>
+    <p>{{message}}：{{i}}{{i | pluralize 'st' 'nd' 'rd' 'th'}}</p>
     <input v-model="message">
 </div>
 <script src="../../bower_components/vue/dist/vue.min.js"></script>
@@ -15,7 +16,7 @@
 		el: '#demo',
 		data: {
 			message: 'Hello Vue.js!',
-			i: 0
+			i: '1'
 		},
 		methods: {
 			plus: function () {
@@ -24,6 +25,7 @@
 			}
 		}
 	});
+
 	//测试Vue的Data属性
 	demo.plus();
 	console.log(demo.i);
