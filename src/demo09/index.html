@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>demo3</title>
+    <style type="text/css">
+    	*{
+    		padding: 0;
+    		margin: 0;
+    	}
+        #demo li{
+            transition: all .7s ease;
+            opacity: 1;
+            padding: 10px;
+            margin: 10px;
+            color: #ffffff;
+            background: #42b983;
+        }
+        #demo li.expand-enter {
+            opacity: 0;
+        }
+        #demo li.expand-leave{
+        	display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="demo">
+        <li v-repeat="items"  >
+            No.{{$index}} - {{items[$index]}}
+        </li>
+    </ul>
+<script src="../../lib/vue/vue.js"></script>
+<script src="../../bower_components/vue/dist/vue.min.js"></script>
+<script>
+	function CheckIfPrime(value, index, ar) {
+	    high = Math.floor(Math.sqrt(value)) + 1;
+	    
+	    for (var div = 2; div <= high; div++) {
+	        if (value % div == 0) {
+	            return false;
+	        }
+	    } 
+	    return true;
+	}
+
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            parentMsg: 'Hello',
+            items: [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53]
+        },
+        methods: {
+        	isPrime: function(){
+        		this.$data.items = this.items.filter(CheckIfPrime);
+        	}
+        }
+    })
+
+</script>
+</body>
+</html>

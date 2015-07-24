@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>demo3</title>
+    <style type="text/css">
+    	*{
+    		padding: 0;
+    		margin: 0;
+    	}
+        #demo dl{
+            padding: 10px;
+            margin: 10px;
+            color: #ffffff;
+            background: #42b983;
+        }
+        #demo dd{
+            transition: all .7s ease;
+            overflow: hidden;
+        }
+        #demo dt{
+            padding: 10px;
+            cursor: pointer;
+        }
+        #demo dd{
+            padding: 20px 10px;
+        }
+        #demo dd.expand-enter {
+            padding: 0 10px;
+            height: 0;
+            opacity: 0;
+        }
+        #demo dd.expand-leave{
+        	padding: 0 10px;
+            height: 0;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo">
+        <dl v-repeat="collapse">
+            <dt v-on="click: toggle(this)">{{title}}</dt>
+            <dd v-if="isShow"  v-transition="expand">{{content}}</dd>
+        </dl>
+    </div>
+<script src="../../lib/vue/vue.js"></script>
+<script src="../../bower_components/vue/dist/vue.min.js"></script>
+<script>
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            collapse:[{
+                title:'This is panel header 1',
+                content:'A dog is a type of domesticated animal.',
+                isShow: false
+            },{
+                title:'This is panel header 2',
+                content:'A dog is a type of domesticated animal.',
+                isShow: false
+            },{
+                title:'This is panel header 3',
+                content:'A dog is a type of domesticated animal.',
+                isShow: false
+            }]
+        },
+        methods: {
+            toggle: function (item){
+                this.collapse.forEach(function(el){
+                    el.isShow = false;
+                });
+                item.isShow = !item.isShow;
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
