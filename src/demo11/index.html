@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>demo11</title>
+</head>
+<body>
+    <div id="demo">
+        <p v-text="message | reverse"></p>
+        <p v-text="message | wrap wrapMsg.begin wrapMsg.end"></p>
+    </div>
+<script src="../../lib/vue/vue.js"></script>
+<script src="../../bower_components/vue/dist/vue.min.js"></script>
+<script>
+    
+    Vue.filter('reverse', function (value) {
+        return value.split('').reverse().join('')
+    });
+
+    Vue.filter('wrap', function (value, begin, end) {
+        return begin + value + end
+    });
+
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            message:'hello,world!~',
+            wrapMsg:{
+                begin: 'before   ',
+                end: '   after'
+            }
+        },
+        methods: {}
+    });
+
+</script>
+</body>
+</html>

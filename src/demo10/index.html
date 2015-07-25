@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>demo3</title>
+	<title>demo10</title>
     <style type="text/css">
     	*{
     		padding: 0;
@@ -41,7 +41,7 @@
     <div id="demo">
         <dl v-repeat="collapse">
             <dt v-on="click: toggle(this)">{{title}}</dt>
-            <dd v-if="isShow"  v-transition="expand">{{content}}</dd>
+            <dd v-show="isShow"  v-transition="expand">{{content}}</dd>
         </dl>
     </div>
 <script src="../../lib/vue/vue.js"></script>
@@ -53,7 +53,7 @@
             collapse:[{
                 title:'This is panel header 1',
                 content:'A dog is a type of domesticated animal.',
-                isShow: false
+                isShow: true
             },{
                 title:'This is panel header 2',
                 content:'A dog is a type of domesticated animal.',
