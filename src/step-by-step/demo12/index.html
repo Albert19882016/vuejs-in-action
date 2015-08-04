@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>demo12</title>
+</head>
+<body>
+<div id="demo">
+    <my-component></my-component>
+</div>
+<script src="../../../bower_components/vue/dist/vue.min.js"></script>
+<script>
+    
+    // 扩展 Vue 得到一个可复用的构造函数
+    var MyComponent = Vue.extend({
+        template: '<p>A custom component!</p>'
+    });
+
+    // 把构造函数注册到 my-component 这个 id
+    Vue.component('my-component', MyComponent);
+
+    var demo = new Vue({
+        el: '#demo'
+    });
+
+</script>
+</body>
+</html>
