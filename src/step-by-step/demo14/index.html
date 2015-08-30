@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>demo13</title>
+</head>
+<body>
+<div id="demo">
+    <component is="{{currentView}}">
+        <!-- 内容随 vm.currentview 一同改变！ -->
+    </component>    
+</div>
+
+<script src="../../../bower_components/vue/dist/vue.min.js"></script>
+<script>
+    var demo = new Vue({
+        el: 'body',
+        data: {
+            currentView: 'home'
+        },
+        components: {
+            home: { 
+                template: '<div>home</div>'
+            },
+            posts: {
+                template: '<div>posts</div>'
+            },
+            archive: {
+                template: '<div>archive</div>'
+            }
+        }
+    });
+</script>
+</body>
+</html>

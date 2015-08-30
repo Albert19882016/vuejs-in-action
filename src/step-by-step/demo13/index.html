@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>demo13</title>
+</head>
+<body>
+<div id="demo">
+    <input v-model="msg">
+    <br/>
+    <child msg="{{msg}}"></child>
+</div>
+<script src="../../../bower_components/vue/dist/vue.min.js"></script>
+<script>
+    
+    Vue.component('child', {
+      // 声明 props
+      props: ['msg'],
+      // 该 prop 可以在模板内部被使用，
+      // 也可以类似 `this.msg` 这样来赋值
+      template: '<span>{{msg}}</span>'
+    })
+
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            msg: 'hello~ Vue~'
+        }
+    });
+
+</script>
+</body>
+</html>
