@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>demo16</title>
+</head>
+<body>
+<h2>这个例子主要尝试用Vue替换图片或者背景</h2>
+<div id="demo">
+    <p v-text='img'></p>
+    <img v-attr='src:img' alt="" width="400">
+    <div v-style="myStyles" style="width:400px;height:400px;"></div>
+    <button v-on="click:changeImg">换换图吧</button>
+</div>
+
+<script src="../../../bower_components/vue/dist/vue.min.js"></script>
+<script>
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            img: 'https://drscdn.500px.org/photo/123771753/m%3D2048/8a413e695c6e99139512919e93bbc791'
+        },
+        computed: {
+            myStyles: function () {
+                console.log(this.img);
+                return {
+                    backgroundImage: 'url(' + this.img + ')',
+                    backgroundSize: 'cover'
+                } 
+            }
+        },
+        methods: {
+            changeImg: function () {
+                this.img = 'https://drscdn.500px.org/photo/123772185/m%3D2048/637188cddd782d5d3edf186d043264ca'
+            }
+        }
+    });
+</script>
+</body>
+</html>
