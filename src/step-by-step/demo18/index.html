@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>demo18</title>
+    <style type="text/css">
+        .v-link-active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+  <router-view></router-view>
+</div>
+
+<script src="../../../bower_components/vue/dist/vue.min.js"></script>
+<script src="../../../bower_components/vue-router/dist/vue-router.min.js"></script>
+<script>
+    var Foo = Vue.extend({
+        template: '<p>This is foo!</p>'
+    });
+
+    var Bar = Vue.extend({
+        template: '<p>This is bar!</p>'
+    });
+
+    var App = Vue.extend({});
+
+    var router = new VueRouter();
+    
+    router.map({
+        '/foo': {
+            component: Foo
+        },
+        '/bar': {
+            component: Bar
+        }
+    });
+
+    router.start(App, '#app');
+</script>
+</body>
+</html>

@@ -6,11 +6,11 @@
 </head>
 <body>
     <ul id="list">
-        <li v-repeat="items" v-on="click: toggle(this)">
+        <li v-repeat="items" v-on="click: toggle">
             {{text}}-{{done}}
         </li>
     </ul>
-<script src="../../bower_components/vue/dist/vue.min.js"></script>
+<script src="../../../bower_components/vue/dist/vue.min.js"></script>
 <script>
     new Vue({
         el: '#list',
@@ -24,8 +24,9 @@
             }]
         },
         methods: {
-            toggle: function(item) {
-                item.done = !item.done
+            toggle: function(e) {
+                console.log(e);
+                this.items[e.targetVM.index].done = !e.targetVM.done
             }
         }
     })

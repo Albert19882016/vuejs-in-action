@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>demo19</title>
+    <style type="text/css">
+        .v-link-active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="file" id="upload" name="upload" v-on="change:upload" /> 
+</div>
+
+<script src="../../../bower_components/vue/dist/vue.min.js"></script>
+<script src="../../../bower_components/zepto/zepto.min.js"></script>
+<script>
+var demo = new Vue({
+        el: '#app',
+        data: {
+        },
+        methods: {
+            upload: function(e){
+                var formData = new FormData();
+                formData.append('upload',e.target.files[0]);
+                console.log(e.target.files[0]);
+                console.log(formData);
+            }
+        }
+    })
+</script>
+</body>
+</html>

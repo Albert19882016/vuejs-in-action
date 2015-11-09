@@ -2,27 +2,28 @@
 <html>
 <head>
   	<meta charset="UTF-8">
-  	<title>demo3</title>
+  	<title>demo4</title>
 </head>
 <body>
     <div id="demo">
         <a v-on="click: onClick">Trigger a handler</a>
+        <br/>
         <a v-on="click: n++">Trigger an expression:{{n}}</a>
     </div>
-<script src="../../bower_components/vue/dist/vue.min.js"></script>
-<script>
-    new Vue({
-        el: '#demo',
-        data: {
-            n: 0
-        },
-        methods: {
-            onClick: function(e) {
-                console.log(e.target.tagName) // "A"
-                console.log(e.targetVM === this) // true
+    <script src="../../../bower_components/vue/dist/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#demo',
+            data: {
+                n: 0
+            },
+            methods: {
+                onClick: function(e) {
+                    console.log(e.target.tagName) // "A"
+                    console.log(e.targetVM === this) // true
+                }
             }
-        }
-    });
-</script>
+        });
+    </script>
 </body>
 </html>

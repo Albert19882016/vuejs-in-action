@@ -13,35 +13,45 @@
 		li.done {
     		text-decoration: line-through;
 		}
+        li.hot {
+            color: red;
+        }
 	</style>
 </head>
 <body>
 	<div id="demo">
-    <h1>{{title | uppercase}}</h1>
-    <ul>
-        <li v-repeat="todos"
-            v-on="click: done = !done"
-            class="{{done ? 'done' : ''}}"
-            v-text="content"
-        >
-        </li>
-    </ul>
-</div>
-<script src="../../bower_components/vue/dist/vue.min.js"></script>
-<script>
-    var demo = new Vue({
-        el: '#demo',
-        data: {
-            title: 'todos',
-            todos: [{
-                done: true,
-                content: 'Learn JavaScript'
-            }, {
-                done: false,
-                content: 'Learn vue.js'
-            }]
-        }
-    });
-</script>
+        <h1>{{title | uppercase}}</h1>
+        <ul>
+            <li v-repeat="todos"
+                v-on="click: done = !done"
+                class="{{done ? 'done' : ''}}"
+                v-class="hot:isHot"
+                v-text="content"
+            >
+            </li>
+        </ul>
+    </div>
+    <script src="../../../bower_components/vue/dist/vue.min.js"></script>
+    <script>
+        var demo = new Vue({
+            el: '#demo',
+            data: {
+                title: 'todos',
+                todos: [{
+                    isHot: false,
+                    done: true,
+                    content: 'Learn JavaScript'
+                }, {
+                    isHot: false,
+                    done: false,
+                    content: 'Learn Vue.js'
+                }, {
+                    isHot: true,
+                    done: false,
+                    content: 'Learn Css'
+                }]
+            }
+        });
+    </script>
 </body>
 </html>
